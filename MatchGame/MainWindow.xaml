@@ -36,6 +36,24 @@
         <TextBlock Grid.Column="1" Grid.ColumnSpan="1" HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="?" VerticalAlignment="Center" FontSize="36" MouseDown = "TextBlock_MouseDown"/>
         <TextBlock Grid.Column="2" Grid.ColumnSpan="1" HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="?" VerticalAlignment="Center" FontSize="36" MouseDown = "TextBlock_MouseDown"/>
         <TextBlock Grid.Column="3" Grid.ColumnSpan="1" HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="?" VerticalAlignment="Center" FontSize="36" MouseDown = "TextBlock_MouseDown"/>
-        <TextBlock x:Name="TimeTextBlock" Grid.Column="0" HorizontalAlignment="Center" Grid.Row="4" TextWrapping="Wrap" Text="Elapsed time" VerticalAlignment="Center" Grid.ColumnSpan="4" FontSize="36" MouseDown="TimeTextBlock_MouseDown"/>
+        <TextBlock x:Name="TimeTextBlock" Grid.Column="0" HorizontalAlignment="Center" Grid.Row="4" TextWrapping="Wrap" Text="Start Game" VerticalAlignment="Center" Grid.ColumnSpan="4" FontSize="36" MouseDown="TimeTextBlock_MouseDown" Width="300" TextAlignment="Center"/>
+        <TextBlock x:Name="Life" HorizontalAlignment="Center" Grid.Row="4" TextWrapping="Wrap" Text="Life: 3" VerticalAlignment="Top"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80" Grid.Column="1"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80" Grid.Column="2"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80" Grid.Column="3"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80" Grid.Row="1"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80" Grid.Row="1" Grid.Column="1"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80" Grid.Row="1" Grid.Column="2"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80" Grid.Row="1" Grid.Column="3"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80" Grid.Row="2"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80" Grid.Row="2" Grid.Column="1"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80" Grid.Row="2" Grid.Column="2"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80" Grid.Row="2" Grid.Column="3"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80" Grid.Row="3"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80" Grid.Row="3" Grid.Column="1"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80" Grid.Row="3" Grid.Column="2"/>
+        <Rectangle HorizontalAlignment="Center" Height="67" Stroke="Black" VerticalAlignment="Center" Width="80" Grid.Row="3" Grid.Column="3"/>
+        
     </Grid>
 </Window>
