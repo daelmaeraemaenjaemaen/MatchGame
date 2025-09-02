@@ -29,6 +29,9 @@ namespace MatchGame
         int matchesFound;
         bool firstStart = true;
         int life;
+        bool isMoon = true;
+        bool startTime;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -45,6 +48,7 @@ namespace MatchGame
             {
                 firstStart = false;
                 timer.Stop();
+                startTime = false;
                 TimeTextBlock.Text = TimeTextBlock.Text + " - Play again?";
             }
             
@@ -54,11 +58,12 @@ namespace MatchGame
             {
                 firstStart = false;
                 timer.Stop();
+                startTime = false;
                 TimeTextBlock.Text = "Game Over. Replay?";
             }
         }
 
-        private void SetUpGame()
+        private void SetUpMoonGame()
         {
             List<string> moonEmoji = new List<string>()
             {
@@ -75,7 +80,7 @@ namespace MatchGame
             Random random = new Random();
             foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
             {
-                if (textBlock.Name != "TimeTextBlock" && textBlock.Name != "Life")
+                if (textBlock.Name != "TimeTextBlock" && textBlock.Name != "Life" && textBlock.Name != "Moon" && textBlock.Name != "Animal" && textBlock.Name != "Now")
                 {
                     textBlock.Visibility = Visibility.Visible;
                     int index = random.Next(moonEmoji.Count);
@@ -86,6 +91,42 @@ namespace MatchGame
             }
 
             timer.Start();
+            startTime = true;
+            tenthsOfSecondsElapsed = 0;
+            matchesFound = 0;
+            life = 3;
+
+        }
+
+        private void SetUpAnimalGame()
+        {
+            List<string> animalEmoji = new List<string>()
+            {
+                "🐶", "🐶",
+                "🐺", "🐺",
+                "🦁", "🦁",
+                "🐯", "🐯",
+                "🐮", "🐮",
+                "🐷", "🐷",
+                "🐭", "🐭",
+                "🐼", "🐼"
+            };
+
+            Random random = new Random();
+            foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
+            {
+                if (textBlock.Name != "TimeTextBlock" && textBlock.Name != "Life" && textBlock.Name != "Moon" && textBlock.Name != "Animal" && textBlock.Name != "Now")
+                {
+                    textBlock.Visibility = Visibility.Visible;
+                    int index = random.Next(animalEmoji.Count);
+                    string nextemoji = animalEmoji[index];
+                    textBlock.Text = nextemoji;
+                    animalEmoji.RemoveAt(index);
+                }
+            }
+
+            timer.Start();
+            startTime = true;
             tenthsOfSecondsElapsed = 0;
             matchesFound = 0;
             life = 3;
@@ -126,12 +167,47 @@ namespace MatchGame
         {
             if (firstStart)
             {
-                SetUpGame();
+                if (isMoon)
+                {
+                    SetUpMoonGame();
+                }
+
+                else
+                {
+                    SetUpAnimalGame();
+                }
+
             }
 
             if (matchesFound == 8 || life == 0)
             {
-                SetUpGame();
+                if (isMoon)
+                {
+                    SetUpMoonGame();
+                }
+
+                else
+                {
+                    SetUpAnimalGame();
+                }
+
+            }
+        }
+
+        private void Moon_MouseDown(object sender, MouseButtonEventArgs e)
+        {   if (!startTime)
+            {
+                isMoon = true;
+                Now.Text = "Now: Moon";
+            }
+        }
+
+        private void Animal_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!startTime)
+            {
+                isMoon = false;
+                Now.Text = "Now: Animal";
             }
         }
     }
